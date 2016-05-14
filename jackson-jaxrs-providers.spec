@@ -3,7 +3,7 @@
 %{?java_common_find_provides_and_requires}
 Name:          %{?scl_prefix}jackson-jaxrs-providers
 Version:       2.5.0
-Release:       2.3%{?dist}
+Release:       2.4%{?dist}
 Summary:       Jackson JAX-RS providers
 License:       ASL 2.0
 URL:           http://wiki.fasterxml.com/JacksonHome
@@ -150,6 +150,8 @@ cp ${file} ${file%.in}
 
 %files -f .mfiles-%{pkg_name}
 %doc README.md release-notes/* LICENSE NOTICE
+%dir %{_javadir}/jackson-jaxrs-providers
+%dir %{_mavenpomdir}/jackson-jaxrs-providers
 
 %files -n %{?scl_prefix}jackson-jaxrs-json-provider -f .mfiles-jackson-jaxrs-json-provider
 %doc LICENSE NOTICE
@@ -158,6 +160,9 @@ cp ${file} ${file%.in}
 %doc LICENSE NOTICE
 
 %changelog
+* Fri Feb 05 2016 Mat Booth <mat.booth@redhat.com> - 2.5.0-2.4
+- Fix unowned directories
+
 * Thu Jul 30 2015 Roland Grunberg <rgrunber@redhat.com> - 2.5.0-2.3
 - Add missing osgi.versionpolicy property.
 
